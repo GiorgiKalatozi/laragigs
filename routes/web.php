@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('listings', [
         "heading" => "Latest Listings",
-        "listings" => [
-            [
-                "id" => 1,
-                "title" => "Listing One",
-                "description" => "I will fight like a lion"
-            ],
-            [
-                "id" => 2,
-                "title" => "Listing Two",
-                "description" => "I will fight like a man"
-            ],
-        ]
+        "listings" => Listing::all()
     ]);
 });
 
